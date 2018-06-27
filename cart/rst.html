@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src = "angular.min.js"></script>
+ <center><h1>List of watches</h1></center>
+       <div  ng-controller = "watchController">
+	   <p id="wtlst"></p>
+	    	<center>	<button ng-click = "list()">List</button></center>
+                 
+
+
+ 	  
+	  <div class="main">
+
+
+			  <div class="rst" ng-repeat="lst in wtlst">
+
+	  <div class="row">
+	  <div class="column">
+     <div class="content">
+	 <img src="fastrack.jpg" alt="watch" style="width:10%">
+	          <font color="white"> Watchname:{{lst.Watchname}} 
+		       Price    :{{lst.price}}</font>
+	
+	 </div>
+	</div>
+	</div>
+	
+<!--	  
+    <center>   		   <img src="sonata.jpg">
+				<br><br></center>-->
+	  </body>
+		</html>

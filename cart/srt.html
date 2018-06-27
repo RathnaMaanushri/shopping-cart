@@ -1,0 +1,76 @@
+<html>
+ <body background="wall.jpg">
+ <script src = "angular.min.js"></script>
+ <script src="../angular-route.js"></script>
+ <div ng-app = "mainApp" ng-controller = "watchController">
+	<div ng-view></div>                        
+  
+</div>
+
+
+ <script>
+         var mainApp = angular.module("mainApp", ['ngRoute']);
+         mainApp.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "loginn.html"
+    })
+    .when("/rst", {
+        templateUrl : "rst.html"
+		
+    })
+    .when("/sangee", {
+        templateUrl : "sangee.html"
+    })
+    .when("/college", {
+        templateUrl : "college.html"
+    });
+});
+         mainApp.controller('loginController', function($scope,$http,$location) {
+            $scope.submit = function(){              
+			   
+			     $http({
+				    url:"/pto",
+				data:{
+					 username: $scope.username,
+					 password    : $scope.password
+					},
+					method : "POST"
+				 
+				 
+				 }).then(function(data){
+					if(data=="user not found"){
+						return false;
+					 }
+					 else
+					 {
+					 
+						$location.path("/rst" );			   
+					 }
+				 })
+			   
+            
+         }
+		 
+		 })
+		 
+		 mainApp.controller('watchController', function($scope,$http) {
+            $scope.list = function(){              
+			 //alert("hi");  
+			     $http({
+				    'url':'http://localhost:8080/list',
+					'method': 'GET'				
+				 
+				 }).then(function(response){
+				    $scope.wtlst=response.data;
+				//alert(JSON.stringify(response));
+				 })
+			   
+            }
+            
+            //$scope.reset();
+         });
+      </script>
+	    </body>
+		</html>
+  

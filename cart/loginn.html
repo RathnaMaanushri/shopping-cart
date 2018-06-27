@@ -1,0 +1,30 @@
+<html>
+<style>
+div {
+    height: 200px;
+    width: 400px;
+    background: black;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+
+</style>
+<div ng-controller="loginController">
+
+
+<center>    <font color="white">Username:</font><br>
+    <input type="text" ng-model="username"><br>
+    <font color="white">Password:</font><br>
+    <input type="password" ng-model="password">
+    <br><br>
+    <button ng-click="submit()">Submit</button>
+	</center>
+  </div>
+  </body>
+  </html>
+  
